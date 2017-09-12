@@ -39,6 +39,17 @@ class ViewController: UIViewController {
         
     }
     
+    @IBAction func plusMinus(_ sender: UIButton) {
+        if digit == false {
+            firstNumber = firstNumber * -1
+            displayOperation.text = String(firstNumber)
+        }
+        else {
+            secondNumber = secondNumber * -1
+            displayOperation.text = String(secondNumber)
+        }
+    }
+    
     @IBAction func operations(_ sender: UIButton) {
         if math == false {
             
