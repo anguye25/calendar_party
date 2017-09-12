@@ -22,15 +22,20 @@ class ViewController: UIViewController {
     @IBOutlet weak var displayAnswer: UILabel!
     
     @IBAction func digits(_ sender: UIButton) {
-                
+        
         if digit == false {
-            displayOperation.text = String(sender.tag-1)
+            displayOperation.text = displayOperation.text! + String(sender.tag-1)
             firstNumber = Double(displayOperation.text!)!
         }
         else { //digit == true
-            secondNumber = Double(sender.tag-1)
-            displayOperation.text = String(firstNumber) + action + String(secondNumber)
-            math = true
+            if math == false {
+                displayOperation.text = ""
+                math = true
+            }
+            else {
+            displayOperation.text = displayOperation.text! + String(sender.tag-1)
+                
+            }
         }
         
     }
@@ -39,7 +44,7 @@ class ViewController: UIViewController {
         if math == false {
             
             if sender.tag == 12 { //divide
-                displayOperation.text = String(firstNumber) + " / "
+                displayOperation.text = " / "
                 action = " / "
                 operation = 12
             }
@@ -63,6 +68,9 @@ class ViewController: UIViewController {
         }
             
         else if math == true && sender.tag == 16 {
+            secondNumber = Double(displayOperation.text!)!
+            displayOperation.text = String(firstNumber) + action + String(secondNumber)
+            
             if operation == 12 {
                 answer = firstNumber/secondNumber
                 displayAnswer.text = String(answer)
