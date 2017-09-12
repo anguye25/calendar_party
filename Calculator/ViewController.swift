@@ -24,7 +24,7 @@ class ViewController: UIViewController {
     @IBAction func digits(_ sender: UIButton) {
         
         if digit == false {
-            displayOperation.text = displayOperation.text! + String(sender.tag-1)
+            displayOperation.text = displayOperation.text! + sender.currentTitle!
             firstNumber = Double(displayOperation.text!)!
         }
         else { //digit == true
@@ -33,8 +33,7 @@ class ViewController: UIViewController {
                 math = true
             }
             else {
-            displayOperation.text = displayOperation.text! + String(sender.tag-1)
-                
+                displayOperation.text = displayOperation.text! + sender.currentTitle!
             }
         }
         
@@ -49,17 +48,17 @@ class ViewController: UIViewController {
                 operation = 12
             }
             else if sender.tag == 13 {  //multiply
-                displayOperation.text = String(firstNumber) + " x "
+                displayOperation.text = " x "
                 action = " x "
                 operation = 13
             }
             else if sender.tag == 14 { //subtract
-                displayOperation.text = String(firstNumber) + " - "
+                displayOperation.text = " - "
                 action = " - "
                 operation = 14
             }
             else if sender.tag == 15 { //add
-                displayOperation.text = String(firstNumber) + " + "
+                displayOperation.text = " + "
                 action = " + "
                 operation = 15
             }
